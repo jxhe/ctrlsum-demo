@@ -12,12 +12,12 @@ def load_data(fname):
 
 st.set_page_config(
     page_title="CTRLsum demo",
-    page_icon="🧊",
+    # page_icon="🧊",
     layout="wide",
     initial_sidebar_state="expanded",
     )
 
-st.title('CTRLsum @Salesforce')
+# st.title('CTRLsum @Salesforce')
 cnndm_entity_data = load_data('entity_control/entity.jsonl')
 cnndm_length_data = load_data('length_control/length.jsonl')
 arxiv_contribution_data = load_data('contribution_control/contribution.jsonl')
@@ -68,7 +68,7 @@ if option_ctrl == 'entity control':
             format_func=lambda x: cnndm_entity_data[ss.ent_id]['entity'][x],
             index=0)
 
-    st.subheader('Generation')
+    st.subheader('Generated Summary')
     st.write(cnndm_entity_data[ss.ent_id]['hypo'][entity_id])
 elif option_ctrl == 'length control':
     if shuffle:
@@ -88,7 +88,7 @@ elif option_ctrl == 'length control':
     st.subheader('Control Tokens')
     st.write(cnndm_length_data[ss.len_id]['keyword'][len_id])
 
-    st.subheader('Generation')
+    st.subheader('Generated Summary')
     st.write(cnndm_length_data[ss.len_id]['hypo'][len_id])
 elif option_ctrl == 'contribution summarization':
     if shuffle:
@@ -100,7 +100,7 @@ elif option_ctrl == 'contribution summarization':
     st.subheader('Control Tokens (keywords and prompt)')
     st.write(arxiv_contribution_data[ss.ctr_id]['prompt'])
 
-    st.subheader('Generation')
+    st.subheader('Generated Summary')
     st.write(arxiv_contribution_data[ss.ctr_id]['hypo']) 
 elif option_ctrl == 'patent purpose summarization':
     if shuffle:
@@ -112,7 +112,7 @@ elif option_ctrl == 'patent purpose summarization':
     st.subheader('Control Tokens (keywords and prompt)')
     st.write(bigpatent_purpose_data[ss.purpose_id]['prompt'])
 
-    st.subheader('Generation')
+    st.subheader('Generated Summary')
     st.write(bigpatent_purpose_data[ss.purpose_id]['hypo'])  
 elif option_ctrl == 'question-guided control':
     if shuffle:
@@ -129,7 +129,7 @@ elif option_ctrl == 'question-guided control':
         index=0)
 
 
-    st.subheader('Generation')
+    st.subheader('Generated Summary')
     st.write(newsqa_data[ss.qa_id]['A'][question_id])
 
     st.subheader('Gold Answer')
