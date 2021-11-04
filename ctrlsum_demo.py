@@ -53,7 +53,8 @@ shuffle = st.sidebar.button('resample article')
 if option_ctrl == 'entity control':
     if shuffle:
         ss.ent_id = random.choice(range(len(cnndm_entity_data)))
-
+    
+    st.markdown('This demo does not host the model and is only to navigate the CTRLsum outputs from experiments of the paper.')
     # st.write(cnndm_entity_data[ss.ent_id]['article'])
     st.subheader('Source Article')
     # st.write(cnndm_entity_data[ss.ent_id]['article'])
@@ -74,6 +75,7 @@ elif option_ctrl == 'length control':
     if shuffle:
         ss.len_id = random.choice(range(len(cnndm_length_data)))
 
+    st.markdown('This demo does not host the model and is only to navigate the CTRLsum outputs from experiments of the paper.')
     st.subheader('Source Article')
     st.text_area('', cnndm_length_data[ss.len_id]['article'], height=400)
     st.subheader('Length Control')
@@ -94,6 +96,7 @@ elif option_ctrl == 'contribution summarization':
     if shuffle:
         ss.ctr_id = random.choice(range(len(arxiv_contribution_data)))
 
+    st.markdown('This demo does not host the model and is only to navigate the CTRLsum outputs from experiments of the paper.')
     st.subheader('Source Article')
     st.text_area('', arxiv_contribution_data[ss.ctr_id]['article'], height=400)
 
@@ -106,6 +109,7 @@ elif option_ctrl == 'patent purpose summarization':
     if shuffle:
         ss.purpose_id = random.choice(range(len(bigpatent_purpose_data)))
 
+    st.markdown('This demo does not host the model and is only to navigate the CTRLsum outputs from experiments of the paper.')
     st.subheader('Source Article')
     st.text_area('', bigpatent_purpose_data[ss.purpose_id]['article'], height=400)
 
@@ -118,10 +122,11 @@ elif option_ctrl == 'question-guided control':
     if shuffle:
         ss.qa_id = random.choice(range(len(newsqa_data)))
 
+    st.markdown('This demo does not host the model and is only to navigate the CTRLsum outputs from experiments of the paper.')
     st.subheader('Source Article')
     st.text_area('', newsqa_data[ss.qa_id]['article'], height=400)
 
-    st.subheader('Control Tokens (keywords and prompt)')
+    st.subheader('Question (keywords and prompt)')
     question_id = st.selectbox(
         '',
         list(range(len(newsqa_data[ss.qa_id]['Q']))),
